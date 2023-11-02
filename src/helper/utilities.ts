@@ -1,7 +1,13 @@
 import axios from "axios";
 
-export const instance = axios.create({
-  baseURL: "https://some-domain.com/api/",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
-});
+// movieApi: "https://api.themoviedb.org/3"
+//  ttestApi: https://test.bulk.ng/api/v1
+export const instance = (token?: string | undefined) =>
+  axios.create({
+    timeout: 15000,
+    baseURL: "https://test.bulk.ng/api/v1",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
